@@ -174,3 +174,30 @@ config-file=config_infer_primary_yolo11.txt
 ```
 deepstream-app -c deepstream_app_config.txt
 ```
+
+### Multiple Streams Setup
+To set up multiple streams under a single deepstream application, you can do the following changes to the deepstream_app_config.txt file
+
+* Change the rows and columns to build a grid display according to the number of streams you want to have. For example, for 4 streams, we can add 2 rows and 2 columns.
+```
+[tiled-display]
+rows=2
+columns=2
+```
+* Set num-sources=4 and add uri of all the 4 streams
+```
+[source0]
+enable=1
+type=3
+uri=path/to/video1.mp4
+uri=path/to/video2.mp4
+uri=path/to/video3.mp4
+uri=path/to/video4.mp4
+num-sources=4
+
+```
+
+### Run Inference
+```
+deepstream-app -c deepstream_app_config.txt
+```
