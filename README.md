@@ -140,7 +140,7 @@ make -C nvdsinfer_custom_impl_Yolo clean && make -C nvdsinfer_custom_impl_Yolo
 
 ##
 
-### Edit the config_infer_primary_yoloV5 file
+### Edit the config_infer_primary_yolo11 file
 
 Edit the `config_infer_primary_yolo11.txt` file according to your model
 
