@@ -67,21 +67,29 @@ dpkg -l | grep TensorRT
 ```
 ### Convert model
 
-#### Download the YOLOv5 repo and install the requirements
+#### Download the YOLO11 repo and install the requirements
 
 ```
-git clone https://github.com/ultralytics/yolov5.git
-cd yolov5
-pip3 install -r requirements.txt
+git clone https://github.com/ultralytics/ultralytics.git
+cd ultralytics
+pip3 install -e .
 pip3 install onnx onnxslim onnxruntime
 ```
 
 #### Download the model
 
-Download the `pt` file from [YOLOv5](https://github.com/ultralytics/yolov5/releases/) releases (example for YOLOv5s 7.0)
+Download Ultralytics YOLO11 detection model (.pt) of your choice from [YOLO11](https://github.com/ultralytics/assets/releases/) releases. Here we use yolo11s.pt.
 
 ```
-wget https://github.com/ultralytics/yolov5/releases/download/v7.0/yolov5s.pt
+wget https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt
+```
+
+#### CLone this repository
+
+```
+cd ..
+git clone https://github.com/marcoslucianops/DeepStream-Yolo.git
+cd DeepStream-Yolo
 ```
 
 #### Convert model
