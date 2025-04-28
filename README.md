@@ -68,7 +68,6 @@ dpkg -l | grep TensorRT
 ### Convert model
 
 #### Download the YOLO11 repo and install the requirements
-
 ```
 git clone https://github.com/ultralytics/ultralytics.git
 cd ultralytics
@@ -78,38 +77,26 @@ pip3 install onnx onnxslim onnxruntime
 
 #### Download the model
 
-Download Ultralytics YOLO11 detection model (.pt) of your choice from [YOLO11](https://github.com/ultralytics/assets/releases/) releases. Here we use yolo11s.pt.
+Download Ultralytics YOLO11 detection model (.pt) of your choice from [YOLO11](https://github.com/ultralytics/assets/releases/) releases. Here we use yolo11n.pt.
 
 ```
-wget https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt
+wget https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt
 ```
 
 #### CLone this repository
 
 ```
-cd ..
+cd ~
 git clone https://github.com/marcoslucianops/DeepStream-Yolo.git
-cd DeepStream-Yolo
 ```
 
 #### Convert model
-
+Copy the export_yolo11.py file from DeepStream-Yolo/utils directory to the ultralytics folder.
 Generate the ONNX model file 
-
 ```
-python3 export.py --weights yolov5s.pt --include onnx --dynamic
+cd ultralytics
+python3 export_yolo11.py -w yolo11n.pt --dynamic
 ```
-
-#### CLone this repository
-
-```
-git clone https://github.com/marcoslucianops/DeepStream-Yolo.git
-cd DeepStream-Yolo
-```
-
-#### Copy generated files
-
-Copy the generated (yolov5s.onnx) ONNX model file to the `DeepStream-YOLO` folder.
 
 #### 6. Compile the lib
 
@@ -118,7 +105,9 @@ Copy the generated (yolov5s.onnx) ONNX model file to the `DeepStream-YOLO` folde
 2. Set the `CUDA_VER` according to your DeepStream version
 
 ```
-export CUDA_VER=XY.Z
+cd ~
+cd DeepStream-Yolo
+export CUDA_VER=10.2
 ```
 
 * x86 platform
@@ -153,12 +142,12 @@ make -C nvdsinfer_custom_impl_Yolo clean && make -C nvdsinfer_custom_impl_Yolo
 
 ### Edit the config_infer_primary_yoloV5 file
 
-Edit the `config_infer_primary_yoloV5.txt` file according to your model (for YOLOv5s with 80 classes)
+Edit the `config_infer_primary_yolo11.txt` file according to your model
 
 ```
 [property]
 ...
-onnx-file=yolov5s.pt.onnx
+onnx-file=yolov11n.pt.onnx
 ...
 num-detected-classes=80
 ...
@@ -175,7 +164,7 @@ parse-bbox-func-name=NvDsInferParseYolo
 ...
 [primary-gie]
 ...
-config-file=config_infer_primary_yoloV5.txt
+config-file=config_infer_primary_yolo11.txt
 ```
 
 ##
