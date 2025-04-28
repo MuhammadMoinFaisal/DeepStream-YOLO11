@@ -167,7 +167,11 @@ parse-bbox-func-name=NvDsInferParseYolo
 config-file=config_infer_primary_yolo11.txt
 ```
 
-##
+### Create a New Directory by the name "predictions" to save the detection results i.e. bounding box coordinates, class name and confidence score
+
+```
+mkdir predictions
+```
 
 ### Testing the model
 
