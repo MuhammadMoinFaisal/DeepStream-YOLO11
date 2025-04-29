@@ -4,7 +4,7 @@ import sqlite3
 # Set the path to your predictions folder
 PREDICTIONS_FOLDER = 'predictions'  # Change this if your folder name is different
 
-# 1. Connect to (or create) a SQLite database file
+# 1. Connect to a SQLite database file
 conn = sqlite3.connect('predictions.db')  # This file will be created in your current directory
 cursor = conn.cursor()
 
@@ -53,4 +53,4 @@ for filename in sorted(os.listdir(PREDICTIONS_FOLDER)):
 conn.commit()
 conn.close()
 
-print('✅ All predictions have been saved successfully into predictions.db')
+print('All predictions have been saved successfully into predictions.db')
