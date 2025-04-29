@@ -288,8 +288,9 @@ It will process all .txt files inside predictions/ and save detections to predic
 After running, you will see a new file created "predictions.db"
 
 ### View data inside database
+```
 nano view_database.py
-
+```
 ### Paste the following code inside
 ```
 import sqlite3
