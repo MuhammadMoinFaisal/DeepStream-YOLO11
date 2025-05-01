@@ -6,7 +6,7 @@ gie-kitti-output-dir=/home/muhammad/DeepStream-Yolo/predictions/
 [tiled-display]
 enable=1
 rows=1
-column=1
+columns=1
 width=1280
 height=720
 gpu-id=0
