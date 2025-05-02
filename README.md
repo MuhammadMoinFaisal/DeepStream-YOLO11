@@ -379,3 +379,12 @@ sudo docker run -it --rm \
   -v /home/muhammad/DeepStream-YOLO11:/opt/deepstream-yolo11 \
   deepstream-yolo11
 ```
+
+### Pull from Docker Hub
+```
+docker pull muhammadmoin619/deepstream-yolo11:latest
+
+```
+```
+docker run -it --rm --runtime nvidia --gpus all muhammadmoin619/deepstream-yolo11:latest
+```
