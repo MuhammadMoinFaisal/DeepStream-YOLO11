@@ -392,7 +392,7 @@ docker run -it --rm --runtime nvidia --gpus all muhammadmoin619/deepstream-yolo1
 docker run -it --rm \
   --runtime nvidia \
   --gpus all \
-  -v /home/yourusername/output:/opt/deepstream-yolo11/output \
+  -v /home/muhammad/DeepStream-YOLO11:/opt/deepstream-yolo11 \
   muhammadmoinfaisal/deepstream-yolo11:latest
 ```
 
