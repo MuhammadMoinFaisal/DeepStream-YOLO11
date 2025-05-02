@@ -347,24 +347,6 @@ COPY . /opt/deepstream-yolo11/
 CMD ["deepstream-app", "-c", "deepstream_app_config.txt"]
 
 ```
-### Save Output to File
-Open the deepstream_app_config.txt file and update [source0] and [sink0]
-```
-[source0]
-enable=1
-type=3
-uri=file:///opt/deepstream-yolo11/video.mp4
-num-sources=1
-gpu-id=0
-cudadec-memtype=0
-
-[sink0]
-enable=1
-type=3
-container=1
-codec=1
-output-file=/opt/deepstream-yolo11/output.mp4
-```
 
 ### Build Docker Image
 ```
