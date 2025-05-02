@@ -388,3 +388,11 @@ docker pull muhammadmoin619/deepstream-yolo11:latest
 ```
 docker run -it --rm --runtime nvidia --gpus all muhammadmoin619/deepstream-yolo11:latest
 ```
+```
+docker run -it --rm \
+  --runtime nvidia \
+  --gpus all \
+  -v /home/yourusername/output:/opt/deepstream-yolo11/output \
+  muhammadmoinfaisal/deepstream-yolo11:latest
+```
+
