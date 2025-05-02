@@ -385,6 +385,7 @@ sudo docker run -it --rm \
 docker pull muhammadmoin619/deepstream-yolo11:latest
 
 ```
+#### Then run it like:
 ```
 docker run -it --rm --runtime nvidia --gpus all muhammadmoin619/deepstream-yolo11:latest
 ```
