@@ -27,6 +27,18 @@ sync=0
 gpu-id=0
 nvbuf-memory-type=0
 
+[sink1]
+enable=1
+type=3
+container=1
+codec=1
+enc-type=0
+sync=0
+bitrate=4000000
+profile=0
+output-file=output.mp4
+source-id=0
+
 [osd]
 enable=1
 gpu-id=0
