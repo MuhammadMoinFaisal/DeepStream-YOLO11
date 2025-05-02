@@ -1,4 +1,4 @@
-# DeepStream-Yolo
+# DeepStream-Yolo11
 
 ### Update packages
 ```
@@ -311,3 +311,71 @@ It will print first 10 detections!
 ### Open .db file online
 Go to [SQLite Viewer](https://sqliteviewer.app/)
 
+### DeepStream-YOLO11 Docker Guide
+This guide helps you build and run the Docker container for DeepStream-YOLO11 on Jetson Nano using DeepStream 6.0.1.
+
+```
+sudo apt install docker.io
+```
+```
+sudo apt install nvidia-container-runtime
+```
+### Create Dockerfile
+```
+# Use NVIDIA DeepStream 6.0.1 base image for Jetson Nano
+FROM nvcr.io/nvidia/deepstream-l4t:6.0.1-triton
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    python3-pip \
+    python3-opencv \
+    python3-numpy \
+    nano && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /opt/deepstream-yolo11
+
+# Copy everything from local repo into container
+COPY . /opt/deepstream-yolo11/
+
+# Default command to run DeepStream
+CMD ["deepstream-app", "-c", "deepstream_app_config.txt"]
+
+```
+### Save Output to File
+Open the deepstream_app_config.txt file and update [source0] and [sink0]
+```
+[source0]
+enable=1
+type=3
+uri=file:///opt/deepstream-yolo11/video.mp4
+num-sources=1
+gpu-id=0
+cudadec-memtype=0
+
+[sink0]
+enable=1
+type=3
+container=1
+codec=1
+output-file=/opt/deepstream-yolo11/output.mp4
+```
+
+### Build Docker Image
+```
+sudo docker build -t deepstream-yolo11 .
+```
+
+### Run Container
+```
+sudo docker run -it --rm \
+  --runtime nvidia \
+  --gpus all \
+  -v /home/muhammad/DeepStream-YOLO11:/opt/deepstream-yolo11 \
+  deepstream-yolo11
+```
