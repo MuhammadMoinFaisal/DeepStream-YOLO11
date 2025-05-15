@@ -87,7 +87,7 @@ wget https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt
 
 ```
 cd ~
-git clone https://github.com/marcoslucianops/DeepStream-Yolo.git
+https://github.com/MuhammadMoinFaisal/DeepStream-YOLO11.git
 ```
 
 #### Convert model
